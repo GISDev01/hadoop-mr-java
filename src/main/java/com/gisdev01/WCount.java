@@ -84,7 +84,9 @@ public class WCount extends Configured implements Tool {
 
         FileInputFormat.setInputPaths(job, new Path(INPUT_PATH));
 
-
+        // For local testing (non-HDFS path): remove previous run files or hadoop will complain
+        File outputDir = new File(OUTPUT_PATH);
+        if (outputDir.exists()) deleteDir(outputDir);
 
         FileOutputFormat.setOutputPath(job, new Path(OUTPUT_PATH));
 
