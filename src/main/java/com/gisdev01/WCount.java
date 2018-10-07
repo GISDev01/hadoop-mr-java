@@ -69,6 +69,7 @@ public class WCount extends Configured implements Tool {
             myFile.delete();
 
         }
+        dir.delete();
     }
 
     public int run(String[] arg0) throws Exception {
