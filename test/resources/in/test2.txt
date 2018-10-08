@@ -1,2 +1,6 @@
+line1file2
 file2 word1
 file2 word2 doubleword2
+specialword4
+specialword4
+line6file2

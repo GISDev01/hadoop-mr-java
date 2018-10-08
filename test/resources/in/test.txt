@@ -1,3 +1,9 @@
+line1file1
 word1 doubleword1
 word2 doubleword2
-word3 line3 file1
+word3 line3 file1 specialword4
+specialword4
+line5
+line6
+line7
+line8
