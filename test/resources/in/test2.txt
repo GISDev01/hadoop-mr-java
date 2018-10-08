@@ -1,11 +1,2 @@
-word1
-word2
-word2
-word2
-word3
-word4
-word4
-word5
-test1
-test2
-test3
+file2 word1
+file2 word2 doubleword2
