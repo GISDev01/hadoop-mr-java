@@ -12,7 +12,7 @@ import org.apache.logging.log4j.core.config.Configurator;
 public class DriverApp {
 
     public static void main(String[] args) throws Exception {
-        Configurator.setRootLevel(Level.DEBUG);
+        Configurator.setRootLevel(Level.INFO);
         Logger logger = LogManager.getLogger("WCountMR");
 
         int response = ToolRunner.run(new Configuration(),
