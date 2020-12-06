@@ -2,12 +2,15 @@ package com.gisdev01.writers;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
 public class RecordWritable implements WritableComparable<RecordWritable> {
+    private Logger logger = LogManager.getRootLogger();
 
     private Text primaryId;
     private Text ipv4;
@@ -51,25 +54,29 @@ public class RecordWritable implements WritableComparable<RecordWritable> {
 
     @Override
     public int compareTo(RecordWritable o) {
-        if (ipv4.compareTo(o.ipv4) == 0) {
-            return (primaryId.compareTo(o.primaryId));
-        } else {
-            return (ipv4.compareTo(o.ipv4));
-        }
+        return (primaryId.compareTo(o.primaryId));
     }
 
     @Override
     public boolean equals(Object o) {
+        logger.info("Equals check");
+        logger.info(o.toString());
         if (o instanceof RecordWritable) {
             RecordWritable other = (RecordWritable) o;
-            return ipv4.equals(other.ipv4) && primaryId.equals(other.primaryId);
+            logger.info(other.toString());
+            logger.info(primaryId.equals(other.primaryId));
+            return primaryId.equals(other.primaryId);
+            // && ipv4.equals(other.ipv4);
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        return primaryId.hashCode() + ipv4.hashCode();
+        logger.info("Getting hashCode for: "
+                + primaryId.toString() + " - "  +
+                ipv4.toString());
+        return primaryId.hashCode();// + ipv4.hashCode();
     }
 
     @Override
