@@ -16,7 +16,7 @@ public class DriverApp {
         Logger logger = LogManager.getLogger("WCountMR");
 
         int response = ToolRunner.run(new Configuration(),
-                new WCount(),
+                new CustomRecordMRJob(),
                 args);
         logger.info("Tool Response Status Code: " + response);
         System.exit(response);
